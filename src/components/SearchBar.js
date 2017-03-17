@@ -1,21 +1,16 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 
-import axios from 'axios';
-
-const API_KEY = 'd04457c03f3b4f931f90cfe2fdde3919';
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
 class SearchBar extends React.Component{
   constructor(props) {
     super(props);
 
     this.state = {
-      term: '',
-      city: '',
-      humidity: '',
-      temp: ''
+      term: ''
     };
 
     this.onInputChange=this.onInputChange.bind(this);
@@ -30,12 +25,7 @@ class SearchBar extends React.Component{
 
   onFormSubmit(event) {
     event.preventDefault();
-    const term = this.state.term
-    const url = `${ROOT_URL}&q=${term},us`;
-    const request = axios.get(url);
-    request.then(function(response) {
-      console.log(response.data);
-    })
+    console.log(event);
   }
 
   render() {
@@ -55,4 +45,8 @@ class SearchBar extends React.Component{
   }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
