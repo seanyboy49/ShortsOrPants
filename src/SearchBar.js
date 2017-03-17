@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 import axios from 'axios';
 
@@ -33,25 +34,15 @@ class SearchBar extends React.Component{
     const url = `${ROOT_URL}&q=${term},us`;
     const request = axios.get(url);
     request.then(function(response) {
-      weatherArray = {...response}
+      console.log(response);
     })
-    console.log(weatherArray);
   }
 
   render() {
     return(
       <div>
-        <form onSubmit={this.onFormSubmit} className="input-group">
-          <input
-            placeholder="Enter a city"
-            className="input-group"
-            value={this.state.term}
-            onChange={this.onInputChange}
-          />
-            <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary">Submit</button>
-            </span>
-        </form>
+        <Button primary>Primary</Button>
+
       </div>
     );
   }
