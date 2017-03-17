@@ -6,17 +6,24 @@ class WeatherList extends React.Component {
     super(props);
 
     this.renderWeather=this.renderWeather.bind(this);
-    console.log('this.props.weather', this.props.weather);
   }
 
   renderWeather(cityData) {
     console.log(cityData);
-    console.log(cityData.name);
-    // const weather = this.props.weather[0];
-    // console.log(weather);
-    // console.log(weather.main);
-    // const weather = this.props.weather[0].weather;
 
+    const city = cityData.name;
+    const humidity = cityData.main.humidity;
+    const temp = cityData.main.temp;
+    const description = cityData.weather[0].description
+
+    return(
+      <div>
+        <p>{city}</p>
+        <p>{humidity}</p>
+        <p>{temp}</p>
+        <p>{description}</p>
+      </div>
+    )
 
   }
 
