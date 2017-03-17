@@ -20,14 +20,14 @@ class WeatherList extends React.Component {
           <p>{humidity} %</p>
           <p>{formattedTemp} F</p>
           <p>{description}</p>
-          {formattedTemp > 50 ?
+          {formattedTemp < 50 ?
             <div>
-              <h2>Wear Jeans!</h2>
+              <h2>WEAR PANTS!</h2>
               <img src="../img/jeans.png"></img>
             </div>
             :
             <div>
-              <h2>Wear Shorts!</h2>
+              <h2>WEAR SHORTS!</h2>
               <img src="../img/shorts.png"></img>
             </div>}
         </div>
