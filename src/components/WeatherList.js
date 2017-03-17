@@ -7,14 +7,15 @@ class WeatherList extends React.Component {
 
     const city = cityData.name;
     const humidity = cityData.main.humidity;
-    const temp = cityData.main.temp;
+    const tempInFarenHeight = cityData.main.temp * 9/5 - 459.67;
+    const formattedTemp = Number((tempInFarenHeight).toFixed(2));
     const description = cityData.weather[0].description
 
     return(
       <div>
-        <p>{city}</p>
+        <h1>{city}</h1>
         <p>{humidity}</p>
-        <p>{temp}</p>
+        <p>{formattedTemp} F</p>
         <p>{description}</p>
       </div>
     )
