@@ -13,6 +13,7 @@ class SearchBar extends React.Component{
       term: ''
     };
 
+
     this.onInputChange=this.onInputChange.bind(this);
     this.onFormSubmit=this.onFormSubmit.bind(this);
 
@@ -25,7 +26,8 @@ class SearchBar extends React.Component{
 
   onFormSubmit(event) {
     event.preventDefault();
-    console.log(event);
+    this.props.fetchWeather(this.state.term); {/* Accesses the fetchWeather method inside props  */}
+    this.setState({ term: ''}); {/* Resets the search bar   */}
   }
 
   render() {
