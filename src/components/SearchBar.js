@@ -34,15 +34,22 @@ class SearchBar extends React.Component{
     const url = `${ROOT_URL}&q=${term},us`;
     const request = axios.get(url);
     request.then(function(response) {
-      console.log(response);
+      console.log(response.data);
     })
   }
 
   render() {
     return(
       <div>
-        <Button primary>Primary</Button>
-
+        <form onSubmit={this.onFormSubmit} >
+          <input
+            placeholder="Enter a city"
+            className="input-group"
+            value={this.state.term}
+            onChange={this.onInputChange}
+          />
+            <Button primary>Submit</Button>
+        </form>
       </div>
     );
   }
