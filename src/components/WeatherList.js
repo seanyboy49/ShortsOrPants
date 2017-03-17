@@ -17,11 +17,15 @@ class WeatherList extends React.Component {
         <p>{humidity}</p>
         <p>{formattedTemp} F</p>
         <p>{description}</p>
+        {formattedTemp > 50 ? <img src="../img/jeans.png"></img> : <img src="../img/shorts.png"></img>}
       </div>
     )
 
   }
 
+  componentDidUpdate() {
+    console.log(this.props.weather);
+  }
 
   render() {
     return(
