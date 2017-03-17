@@ -2,14 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class WeatherList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.renderWeather=this.renderWeather.bind(this);
-  }
 
   renderWeather(cityData) {
-    console.log(cityData);
 
     const city = cityData.name;
     const humidity = cityData.main.humidity;

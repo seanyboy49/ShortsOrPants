@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Input, Button } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -34,13 +34,14 @@ class SearchBar extends React.Component{
     return(
       <div>
         <form onSubmit={this.onFormSubmit} >
-          <input
+          <Input
+            action="Search"
             placeholder="Enter a city"
-            className="input-group"
+            size="massive"
             value={this.state.term}
             onChange={this.onInputChange}
           />
-            <Button primary>Submit</Button>
+          {/* <Button primary>Submit</Button> */}
         </form>
       </div>
     );
