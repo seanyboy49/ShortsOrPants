@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'semantic-ui-react';
+import { Input, Button, Segment } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -32,7 +32,7 @@ class SearchBar extends React.Component{
 
   render() {
     return(
-      <div>
+      <Segment fluid >
         <form onSubmit={this.onFormSubmit} >
           <Input
             action="Search"
@@ -43,7 +43,7 @@ class SearchBar extends React.Component{
           />
           {/* <Button primary>Submit</Button> */}
         </form>
-      </div>
+      </Segment>
     );
   }
 }
